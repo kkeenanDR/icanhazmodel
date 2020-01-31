@@ -4,6 +4,8 @@
 
 The Data Strategy and Financial Services Data Science teams contribute to and maintain a conduct surveillance pretrained model object repository in aws::s3. This tool provides a simple interface for downloading those model artifacts, and saving them to disk, following the directory structure define within the object keys.
 
+By maintaining the directory structure of the actual model artifacts increases the accuracy with which we can communicate about specific data and model components, since their location on disk matches that in aws::s3, meaning collaborators can easily locate them for themselves.
+
 ## Implementation
 
 The tool is a python package providing a simple cli interface. This cli tool can be made globally available, or restricted to a virtual environment.
