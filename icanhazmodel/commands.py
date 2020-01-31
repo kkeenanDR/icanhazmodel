@@ -50,7 +50,7 @@ def cli(profile="default", bucket="appliedml", model_dir="ptms", model_key=None)
     # create the path structure required
     ptm_dir_full = model_dir + "/" + model_key
     if not os.path.exists(ptm_dir_full):
-        os.makedirs(ptm_dir_full)
+        os.makedirs(ptm_dir_full.replace(os.path.basename(ptm_dir_full), ""))
     # instantiate an aws::s3 client
     session = boto3.session.Session(profile_name=profile)
     s3 = session.client('s3')
@@ -60,7 +60,6 @@ def cli(profile="default", bucket="appliedml", model_dir="ptms", model_key=None)
         for obj in all_objects["Contents"]:
             target = model_dir + "/" + obj["Key"]
             non_basename = target.replace(os.path.basename(target), "")
-            print(target)
             if not os.path.exists(non_basename):
                 os.makedirs(non_basename)
             with open(target, 'wb') as f:
