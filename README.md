@@ -18,6 +18,44 @@ pip install git+https://git.corp.digitalreasoning.com/scm/~kevin.keenan/icanhazm
 
 ## Usage
 
+The basic usage of the tool can be view with
+
+```sh
+icanhazmodel --help
+```
+
+Which returns:
+
+```sh
+Usage: icanhazmodel [OPTIONS]
+
+  A simple function for downloading all files within a bucket and under a
+  given key prefix, which will write objects to local locations that are
+  faithful to the path structure as defined in the object keys
+
+  Parameters
+
+      aws_profile (str): the profile you would like to use from
+      ~/.aws/credentials     bucket (str): the name of the bucket that the
+      target objects are stored in on s3     model_dir (str): the directory
+      that you would like the s3 objects to be written within     model_key
+      (str): the object key underwhich to download all objects
+
+  Returns
+
+      Writes all detected objects to disk
+
+Options:
+  -p, --profile TEXT    the profile you would like to use from
+                        ~/.aws/credentials
+  -b, --bucket TEXT     the name of the bucket that the target objects are
+                        stored in on s3
+  -m, --model_dir TEXT  the directory that you would like the s3 objects to be
+                        written within
+  -k, --model_key TEXT  the object key underwhich to download all objects
+  --help                Show this message and exit.
+  ```
+
 Once the package has successfully installed, you can download model artifacts as follows
 
 ```sh
@@ -28,7 +66,26 @@ This may take some time to complete depending on your network speed, since all m
 
 ```sh
 cd ptms
-tree .
-```
-
+23:01 $ tree
+.
+└── conduct
+    └── secrecy
+        └── en
+            └── version_1.2
+                ├── data
+                │   ├── README.txt
+                │   ├── all_train.csv
+                │   └── ft
+                │       ├── test.csv
+                │       └── train.csv
+                └── models
+                    ├── ft
+                    │   ├── cognition-normalization.zip
+                    │   ├── cs-secrecy-avg-pool.cognition.archive.zip
+                    │   ├── cs-secrecy-avg-pool.cognition.spec.yaml
+                    │   ├── cs-secrecy-max-pool.cognition.archive.zip
+                    │   └── cs-secrecy-max-pool.cognition.spec.yaml
+                    └── lr
+                        ├── cs-secrecy-lr.engine
+                        └── secrecy.model_pipeline.pkl
 ```

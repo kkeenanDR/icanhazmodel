@@ -60,6 +60,7 @@ def cli(profile="default", bucket="appliedml", model_dir="ptms", model_key=None)
         for obj in all_objects["Contents"]:
             target = model_dir + "/" + obj["Key"]
             non_basename = target.replace(os.path.basename(target), "")
+            print(target)
             if not os.path.exists(non_basename):
                 os.makedirs(non_basename)
             with open(target, 'wb') as f:
