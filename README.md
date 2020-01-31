@@ -13,4 +13,22 @@ The tool is a python package providing a simple cli interface. This cli tool can
 The best way to install the package is with `pip`. If you have `pip` installed you can run the following command:
 
 ```sh
-pip install git+https://github.com/jkbr/httpie.git
+pip install git+https://git.corp.digitalreasoning.com/scm/~kevin.keenan/icanhazmodel.git
+```
+
+## Usage
+
+Once the package has successfully installed, you can download model artifacts as follows
+
+```sh
+icanhazmodel -p "kevin-digitalreasoning" -k "conduct/secrecy/en/version_1.2"
+```
+
+This may take some time to complete depending on your network speed, since all model components under the model key will be downloaded, including the training data. Below is a view of the directory tree following the above command:
+
+```sh
+cd ptms
+tree .
+```
+
+```
