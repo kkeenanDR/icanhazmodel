@@ -56,10 +56,10 @@ Options:
   --help                Show this message and exit.
   ```
 
-Once the package has successfully installed, you can download model artifacts as follows
+Once the package has successfully installed, you can download all model model artifacts under the model key as follows:
 
 ```sh
-icanhazmodel -p "kevin-digitalreasoning" -k "conduct/secrecy/en/version_1.2"
+icanhazmodel --profile "kevin-digitalreasoning" --model_key "conduct/secrecy/en/version_1.2"
 ```
 
 This may take some time to complete depending on your network speed, since all model components under the model key will be downloaded, including the training data. Below is a view of the directory tree following the above command:
@@ -88,4 +88,25 @@ cd ptms
                     └── lr
                         ├── cs-secrecy-lr.engine
                         └── secrecy.model_pipeline.pkl
+```
+
+Similarly, if you would like to download only a specific field from a model key, you can do that too:
+
+```sh
+icanhazmodel --profile "kevin-digitalreasoning" --model_key "conduct/secrecy/en/version_1.2/models/ft/cs-secrecy-avg-pool.cognition.spec.yaml"
+```
+
+This will download the artifact to the following tree:
+
+```sh
+cd ptms
+tree
+.
+└── conduct
+    └── secrecy
+        └── en
+            └── version_1.2
+                └── models
+                    └── ft
+                        └── cs-secrecy-avg-pool.cognition.spec.yaml
 ```
