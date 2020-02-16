@@ -2,7 +2,7 @@ import setuptools
 
 setuptools.setup(
     name="icanhazmodel",
-    version="0.0.3",
+    version="0.0.4",
     packages=setuptools.find_packages(),
     include_package_data=False,
     zip_safe=False,
