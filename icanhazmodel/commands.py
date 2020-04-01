@@ -48,11 +48,6 @@ def cli(profile="default", bucket="appliedml", model_dir="ptms", model_key=None)
     
         Writes all detected objects to disk
     """
-    # create the path structure required
-    ptm_dir_full = model_dir + "/" + model_key
-    # pattern = re.compile("[^\/;]+\.[a-zA-Z0-9]+$")
-    # if re.search(pattern, os.path.basename(ptm_dir_full)) and not os.path.exists(ptm_dir_full):
-    #     os.makedirs(ptm_dir_full)
     # instantiate an aws::s3 client
     session = boto3.session.Session(profile_name=profile)
     s3 = session.client('s3')
@@ -65,9 +60,9 @@ def cli(profile="default", bucket="appliedml", model_dir="ptms", model_key=None)
             if not os.path.exists(non_basename):
                 os.makedirs(non_basename)
             if not os.path.isfile(target):
-                print("Downloading " + obj["Key"] + "\n")
+                print("Downloading " + obj["Key"])
                 with open(target, 'wb') as f:
                     s3.download_fileobj(bucket, obj["Key"], f)
-                print("Done!\n")
+                print("Done!")
     else:
         print("No objects detected")
