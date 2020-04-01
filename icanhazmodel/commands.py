@@ -65,7 +65,9 @@ def cli(profile="default", bucket="appliedml", model_dir="ptms", model_key=None)
             if not os.path.exists(non_basename):
                 os.makedirs(non_basename)
             if not os.path.isfile(target):
+                print("Downloading " + obj["Key"] + "\n")
                 with open(target, 'wb') as f:
                     s3.download_fileobj(bucket, obj["Key"], f)
+                print("Done!\n")
     else:
         print("No objects detected")
