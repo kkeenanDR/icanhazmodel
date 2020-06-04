@@ -15,7 +15,7 @@ The tool is a python package providing a simple cli interface. This cli tool can
 The best way to install the package is with `pip`. If you have `pip` installed you can run the following command:
 
 ```sh
-pip install git+https://git.corp.digitalreasoning.com/scm/~kevin.keenan/icanhazmodel.git
+pip install git+https://stash.corp.digitalreasoning.com/scm/ds/icanhazmodel.git
 ```
 
 ## Usage
